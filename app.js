@@ -360,13 +360,20 @@
     const welcome = document.getElementById('welcomeText');
     if (!welcome) return;
     
-    const hour = new Date().getHours();
-    let greeting = 'Xin chào!';
-    if (hour < 12) greeting = 'Chào buổi sáng! 🌅';
-    else if (hour < 18) greeting = 'Chào buổi chiều! ☀️';
-    else greeting = 'Chào buổi tối! 🌙';
+    const cur = state.currentUser;
+    const userName = cur ? cur.name : '';
     
-    welcome.textContent = greeting;
+    const hour = new Date().getHours();
+    let greeting = 'Xin chào';
+    if (hour < 12) greeting = 'Chào buổi sáng';
+    else if (hour < 18) greeting = 'Chào buổi chiều';
+    else greeting = 'Chào buổi tối';
+    
+    if (userName) {
+      welcome.textContent = `${greeting}, ${userName}!`;
+    } else {
+      welcome.textContent = `${greeting}!`;
+    }
   }
 
   // --- DROPDOWN INITIALIZER ---
@@ -438,6 +445,7 @@
 
   // --- DASHBOARD RENDERER ---
   function renderDashboard() {
+    setWelcomeHeader();
     const totalJobs = state.jobs.length;
     const pendingJobs = state.jobs.filter(j => j.status === 'pending').length;
     
