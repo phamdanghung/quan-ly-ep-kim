@@ -8,7 +8,7 @@
   'use strict';
 
   // --- STATE DEFINITION & LOCAL STORAGE KEYS ---
-  const STORAGE_KEY = 'foil_stamping_manager_state_v6'; // Reset storage for accounts, role system and Bế process
+  const STORAGE_KEY = 'foil_stamping_manager_state_v7'; // Reset storage for default vandang account distribution
 
   let state = {
     theme: 'dark',
@@ -26,7 +26,8 @@
     { id: 'cm_ngan', name: 'Ngân', phone: '', role: 'Thợ ép chính' },
     { id: 'cm_hung', name: 'Hưng', phone: '', role: 'Thợ chính (Ép & Bế)' },
     { id: 'cm_yen', name: 'Yến', phone: '', role: 'Thợ ép chính' },
-    { id: 'cm_thao', name: 'Thảo', phone: '', role: 'Thợ bế hộp' }
+    { id: 'cm_thao', name: 'Thảo', phone: '', role: 'Thợ bế hộp' },
+    { id: 'cm_vandang', name: 'Nguyễn Văn Đặng', phone: '', role: 'Thợ ép chính' }
   ];
 
   // Seed default accounts linked to craftsmen or admin
@@ -37,7 +38,8 @@
     { id: 'acc_ngan', username: 'ngan', password: '123', name: 'Ngân', isSystemAdmin: false, roleEpKim: true, roleBe: false, craftsmanId: 'cm_ngan' },
     { id: 'acc_hung', username: 'hung', password: '123', name: 'Hưng', isSystemAdmin: false, roleEpKim: true, roleBe: true, craftsmanId: 'cm_hung' },
     { id: 'acc_yen', username: 'yen', password: '123', name: 'Yến', isSystemAdmin: false, roleEpKim: true, roleBe: false, craftsmanId: 'cm_yen' },
-    { id: 'acc_thao', username: 'thao', password: '123', name: 'Thảo', isSystemAdmin: false, roleEpKim: false, roleBe: true, craftsmanId: 'cm_thao' }
+    { id: 'acc_thao', username: 'thao', password: '123', name: 'Thảo', isSystemAdmin: false, roleEpKim: false, roleBe: true, craftsmanId: 'cm_thao' },
+    { id: 'acc_vandang', username: 'vandang', password: '123', name: 'Nguyễn Văn Đặng', isSystemAdmin: false, roleEpKim: true, roleBe: false, craftsmanId: 'cm_vandang' }
   ];
 
   // Raw seed jobs, mapped to 'ep-kim' or 'be'
