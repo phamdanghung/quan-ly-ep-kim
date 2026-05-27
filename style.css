@@ -928,12 +928,13 @@ select.form-control {
   }
   
   .sidebar {
-    transform: translateX(-100%);
+    width: 260px !important;
+    transform: translateX(-100%) !important;
   }
   
   .sidebar.mobile-active {
-    transform: translateX(0);
-    width: 260px;
+    transform: translateX(0) !important;
+    width: 260px !important;
     box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
   }
   
